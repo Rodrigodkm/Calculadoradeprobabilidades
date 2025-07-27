@@ -1,0 +1,260 @@
+/* style.css - NOVO DESIGN */
+
+/* Variáveis de Cores e Fontes */
+:root {
+    --bg-primary: #1e1e2e; /* Fundo principal escuro */
+    --bg-secondary: #28283d; /* Fundo de blocos/cards */
+    --accent-color-1: #ff6e6e; /* Vermelho/Rosa vibrante para destaque */
+    --accent-color-2: #ffe66d; /* Amarelo para neon */
+    --text-light: #e0e0e0; /* Texto claro principal */
+    --text-dark: #000000; /* Texto escuro para destaques */
+    --border-color: #3f3f5a; /* Cor para bordas sutis */
+    --input-focus-border: #8c7ae6; /* Borda de foco para inputs */
+    --shadow-color: rgba(0, 0, 0, 0.4); /* Cor da sombra geral */
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Fonte moderna e limpa */
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-primary);
+    color: var(--text-light);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha no topo, não centraliza verticalmente na tela inteira */
+    min-height: 100vh;
+    padding: 20px; /* Adiciona um padding geral no body */
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto; /* Remove margin-top/bottom extras aqui, já tem padding no body */
+    padding: 30px;
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    box-sizing: border-box;
+    display: flex; /* Usar flexbox para o layout principal do container */
+    flex-direction: column; /* Coloca os elementos (inputs, botões, resultados) em coluna */
+    gap: 25px; /* Espaço entre as seções principais */
+}
+
+h1, h2, h3, h4 {
+    color: var(--accent-color-1); /* Títulos com cor de destaque */
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* Seções de Input e Botões */
+.input-section,
+.stats-input-section,
+.buttons-section {
+    padding: 20px;
+    background-color: var(--bg-primary); /* Fundo um pouco mais escuro para inputs */
+    border-radius: 8px;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3); /* Sombra interna para profundidade */
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: calc(100% - 22px); /* Largura total menos padding e borda */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: #3f3f5a; /* Um tom de azul mais escuro para inputs */
+    color: var(--text-light);
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    border-color: var(--input-focus-border);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(140, 122, 230, 0.4); /* Brilho suave ao focar */
+}
+
+button {
+    background-color: var(--accent-color-1);
+    color: var(--text-light);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-right: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background-color: var(--button-hover-bg); /* Use a cor do tema, se definida */
+    filter: brightness(1.1); /* Um pequeno brilho no hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+button:last-child {
+    margin-right: 0;
+}
+
+/* Seção de Resultados - NOVA ESTRUTURA */
+#resultsDisplay ul li {
+    background-color: var(--input-bg);
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    /* white-space: nowrap; */ /* Comentado ou Removido */
+    /* overflow: hidden; */      /* Comentado ou Removido */
+    /* text-overflow: ellipsis; */ /* Comentado ou Removido */
+    transition: all 0.2s ease-in-out;
+}
+
+.probability-category {
+    background-color: var(--bg-primary); /* Fundo da caixa da categoria */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    box-sizing: border-box;
+    display: flex; /* Flexbox para o título e a lista dentro da categoria */
+    flex-direction: column;
+}
+
+.probability-category h4 {
+    color: var(--accent-color-1); /* Título da categoria */
+    text-align: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color); /* Separador visual */
+    padding-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.probability-category ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Flexbox para os itens da lista */
+    flex-direction: column; /* Itens um abaixo do outro */
+    gap: 8px; /* Espaço entre os itens de probabilidade */
+}
+
+.probability-category li {
+    background-color: var(--bg-secondary); /* Fundo de cada item de probabilidade */
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    text-align: center;
+    color: var(--text-light);
+    transition: background-color 0.2s ease;
+    white-space: nowrap; /* Evita quebra de linha em nomes longos */
+    overflow: hidden; /* Oculta o que ultrapassa */
+    text-overflow: ellipsis; /* Adiciona '...' se o texto for muito longo */
+}
+
+.probability-category li:hover {
+    background-color: #363650; /* Um pouco mais claro no hover */
+}
+
+/* Destaque para a maior probabilidade com EFEITO NEON NO TEXTO */
+.highlighted-prob {
+    font-weight: bold;
+    color: #FFFFFF;            /* Cor base do texto neon: branco */
+    /* Sem background-color aqui, pois o li pai já tem */
+    
+    /* Efeito de sombra no TEXTO para criar o neon */
+    text-shadow: 0 0 5px var(--accent-color-2), /* Sombra mais interna, mais forte (amarelo) */
+                 0 0 10px var(--accent-color-2), /* Sombra média (amarelo) */
+                 0 0 20px #FFD700; /* Sombra externa, com tom dourado para efeito de brilho */
+    transition: text-shadow 0.3s ease;
+}
+
+/* Opcional: Intensificar o neon ao passar o mouse */
+.highlighted-prob:hover {
+    text-shadow: 0 0 8px var(--accent-color-2),
+                 0 0 15px var(--accent-color-2),
+                 0 0 30px #FFD700;
+}
+
+/* Seção de Informações (Handicap) e Rodapé */
+.info-section {
+    margin-top: 25px;
+    padding: 25px;
+    background-color: var(--bg-primary);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.info-section h3 {
+    color: var(--accent-color-1);
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.info-section p, .info-section ul {
+    color: var(--text-light);
+    margin-bottom: 10px;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.info-section ul {
+    list-style-type: disc;
+    margin-left: 25px;
+}
+
+.info-section ul ul { /* Para sub-listas (exemplos de handicap) */
+    list-style-type: circle;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    .container {
+        padding: 20px;
+    }
+    .input-section, .stats-input-section, .buttons-section, .probability-category, .info-section {
+        padding: 15px;
+    }
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    #resultsDisplay {
+        grid-template-columns: 1fr; /* Uma única coluna em telas menores */
+    }
+    .probability-category h4 {
+        font-size: 1.2rem;
+    }
+    .probability-category li {
+        font-size: 1rem;
+    }
+}

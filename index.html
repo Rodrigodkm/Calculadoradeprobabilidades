@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Probabilidades de Futebol</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="/manifest.json"> </head>
+<body>
+    <script src="app.js"></script>
+</body>
+</html>
+    <div class="container">
+        <h1>Calculadora de Probabilidades de Futebol</h1>
+
+        <div class="input-section">
+            <h2>Dados do Jogo</h2>
+            <div class="input-group">
+                <label for="team1Name">Nome do Time da Casa:</label>
+                <input type="text" id="team1Name" value="Time A">
+
+                <label for="team2Name">Nome do Time Visitante:</label>
+                <input type="text" id="team2Name" value="Time B">
+
+                <label for="minutoAtual">Minuto Atual do Jogo (0-90):</label>
+                <input type="number" id="minutoAtual" min="0" max="90" value="45">
+
+                <label for="golsTime1">Gols do Time da Casa:</label>
+                <input type="number" id="golsTime1" min="0" value="0">
+
+                <label for="golsTime2">Gols do Time Visitante:</label>
+                <input type="number" id="golsTime2" min="0" value="0">
+            </div>
+        </div>
+
+        <div class="stats-input-section">
+            <h2>Estatísticas Brutas (Cole aqui do Flashscore, Sofascore, etc.)</h2>
+            <textarea id="rawStatsText" rows="10" placeholder="Cole as estatísticas aqui. Ex: Posse de bola 50% - 50% ..."></textarea>
+        </div>
+
+        <div class="buttons-section">
+            <button id="calculateBtn">Calcular Probabilidades</button>
+            <button id="resetBtn">Limpar Dados</button>
+        </div>
+
+        <div id="resultsDisplay">
+            </div>
+
+        <div class="info-section">
+            <h3>O Que é o Handicap Asiático?</h3>
+            <p>O Handicap Asiático é um tipo de aposta muito popular no futebol (e outros esportes) que visa eliminar a possibilidade de empate e equilibrar as chances entre equipes de diferentes níveis.</p>
+            <p>Funciona assim:</p>
+            <ul>
+                <li><strong>Eliminação do Empate:</strong> Diferente da aposta simples (1X2), no Handicap Asiático, se o jogo terminaria em empate com a aposta tradicional, seu dinheiro pode ser devolvido (push) ou a aposta pode ser considerada vitoriosa para um dos lados, dependendo da linha do handicap.</li>
+                <li><strong>Vantagem/Desvantagem Virtual:</strong> As equipes recebem uma "vantagem" ou "desvantagem" de gols (ou pontos) antes mesmo de o jogo começar.</li>
+                <li><strong>Exemplos Comuns:</strong>
+                    <ul>
+                        <li><strong>Handicap 0.0 (DNB - Draw No Bet):</strong> Se a equipe que você apostou vencer, você ganha. Se empatar, seu dinheiro é devolvido. Se perder, você perde.</li>
+                        <li><strong>Handicap +0.5 (Time A +0.5):</strong> Sua aposta vence se o Time A vencer ou empatar. É como se o Time A começasse com meio gol de vantagem.</li>
+                        <li><strong>Handicap -0.5 (Time A -0.5):</strong> Sua aposta vence se o Time A vencer por qualquer placar. É como se o Time A começasse com meio gol de desvantagem.</li>
+                        <li><strong>Handicap +1.0 (Time A +1.0):</strong> Sua aposta vence se o Time A vencer ou empatar. Se o Time A perder por exatamente 1 gol, seu dinheiro é devolvido. Se perder por 2 ou mais gols, você perde.</li>
+                        <li><strong>Handicap -1.0 (Time A -1.0):</strong> Sua aposta vence se o Time A vencer por 2 ou mais gols. Se vencer por exatamente 1 gol, seu dinheiro é devolvido. Se empatar ou perder, você perde.</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>As linhas de handicap como +0.25, +0.75, +1.25, etc., significam que sua aposta é dividida em duas, sendo metade para a linha inteira e metade para a linha .5.</p>
+            <p>Este sistema oferece mais flexibilidade e oportunidades para apostadores experientes.</p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2023 Calculadora de Probabilidades. Todos os direitos reservados.</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
